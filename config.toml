@@ -1,0 +1,43 @@
+theme = "everforest_dark"
+
+[editor]
+mouse = true
+color-modes = true
+line-number = "relative"
+auto-completion = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+mode.normal = "😴"
+mode.insert = "📝"
+mode.select = "🔦"
+
+[editor.whitespace]
+render = "all"
+
+[editor.lsp]
+auto-signature-help = false
+display-messages = true
+
+[keys.insert]
+"C-space" = "completion"
+
+[keys.normal]
+"S-j" = "half_page_down"
+"S-k" = "half_page_up"
+"C-h" = "jump_view_left"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
+"C-l" = "jump_view_right"
+"C-s" = ":w"
+"C-q" = ":q"
+"C-m" = "save_selection"
+
+[keys.normal.space]
+"x" = ":bc"
