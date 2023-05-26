@@ -5,6 +5,7 @@ mouse = true
 color-modes = true
 line-number = "relative"
 auto-completion = false
+cursorline = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,6 +15,9 @@ normal = "block"
 hidden = false
 
 [editor.statusline]
+left = ["mode", "file-type", "file-name"]
+center = ["spinner"]
+right = ["version-control", "workspace-diagnostics", "file-encoding"]
 mode.normal = "😴"
 mode.insert = "📝"
 mode.select = "🔦"
@@ -38,6 +42,7 @@ display-messages = true
 "C-s" = ":w"
 "C-q" = ":q"
 "C-m" = "save_selection"
+"F5" = ":reload-all"
 
 [keys.normal.space]
 "x" = ":bc"
