@@ -1,25 +1,39 @@
+# Configure language servers
+[language-server.gdscript]
+command = "nc"
+args = ["127.0.0.1", "6005"]
+language-id = "gdscript"
+
+[language-server.ltex-ls]
+command = "ltex-ls"
+
+[language-server.vue-language-server]
+command = "vue-language-server"
+args = ["--stdio"]
+
+# Configure languages
 [[language]]
 name = "gdscript"
 roots = ["project.godot"]
-language-server = { command = "nc", args = ["127.0.0.1", "6005"], language-id = "gdscript" }
+language-servers = [ "gdscript" ]
 
 [[language]]
 name = "markdown"
-language-server = { command = "ltex-ls" }
+language-servers = [ "ltex-ls" ]
 file-types = ["md"]
 scope = "source.markdown"
 roots = []
 
 [[language]]
 name = "git-commit"
-language-server = { command = "ltex-ls" }
+language-servers = [ "ltex-ls" ]
 scope = "git.commitmsg"
 file-types = ["COMMIT_EDITMSG"]
 comment-token = "#"
 
 [[language]]
 name = "vue"
-language-server = { command = "vue-language-server", args = ["--stdio"] }
+language-servers = [ "vue-language-server" ]
 auto-format = true
 file-types = ["vue"]
 injection-regex = "vue"
