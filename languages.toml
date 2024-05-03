@@ -1,7 +1,12 @@
 # Configure language servers
-[language-server.gdscript]
+[language-server.godotlsp]
 command = "nc"
 args = ["127.0.0.1", "6005"]
+language-id = "gdscript"
+
+[language-server.gdlint]
+command = "gdlint"
+args = []
 language-id = "gdscript"
 
 [language-server.ltex-ls]
@@ -11,11 +16,23 @@ command = "ltex-ls"
 command = "vue-language-server"
 args = ["--stdio"]
 
+[language-server.typst-lsp]
+command = "typst-lsp"
+args = []
+
+[language-server.angular-lsp]
+command = "ngserver"
+args = ["--stdio", "--tsProbeLocations", "$(npm -g root)/typescript/lib", "--ngProbeLocations", "$(npm -g root)/@angular/language-server/bin"]
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
 # Configure languages
 [[language]]
 name = "gdscript"
 roots = ["project.godot"]
-language-servers = [ "gdscript" ]
+language-servers = [ "godotlsp", "gdlint" ]
 
 [[language]]
 name = "markdown"
@@ -39,3 +56,18 @@ file-types = ["vue"]
 injection-regex = "vue"
 roots = ["package.json"]
 scope = "source.html.vue"
+
+[[language]]
+name = "typst"
+scope = "source.typst"
+injection-regex = "typ(st)?"
+auto-format = true
+file-types = ["typst", "typ"]
+roots = []
+comment-token = '//'
+language-servers = ["typst-lsp"]
+soft-wrap.enable = true
+
+[[grammar]]
+name = "typst"
+source = { git = "https://github.com/uben0/tree-sitter-typst", rev = "7a2bb249fc555dbcba7d440709927614b8802969" }
