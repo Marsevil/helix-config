@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "ayu_mirage"
 
 [editor]
 mouse = true
@@ -6,6 +6,7 @@ color-modes = true
 line-number = "relative"
 auto-completion = false
 cursorline = true
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -45,4 +46,7 @@ display-messages = true
 "F5" = ":reload-all"
 
 [keys.normal.space]
+"f" = "file_picker_in_current_directory"
+"F" = "file_picker"
 "x" = ":bc"
+"i" = ":fmt"
