@@ -16,10 +16,6 @@ command = "ltex-ls"
 command = "vue-language-server"
 args = ["--stdio"]
 
-[language-server.typst-lsp]
-command = "typst-lsp"
-args = []
-
 [language-server.angular-lsp]
 command = "ngserver"
 args = ["--stdio", "--tsProbeLocations", "$(npm -g root)/typescript/lib", "--ngProbeLocations", "$(npm -g root)/@angular/language-server/bin"]
@@ -49,6 +45,18 @@ file-types = ["COMMIT_EDITMSG"]
 comment-token = "#"
 
 [[language]]
+name = "javascript"
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
+[[language]]
+name = "svelte"
+formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte", "--parser", "svelte"] }
+
+[[language]]
 name = "vue"
 language-servers = [ "vue-language-server" ]
 auto-format = true
@@ -59,15 +67,6 @@ scope = "source.html.vue"
 
 [[language]]
 name = "typst"
-scope = "source.typst"
-injection-regex = "typ(st)?"
 auto-format = true
-file-types = ["typst", "typ"]
-roots = []
-comment-token = '//'
-language-servers = ["typst-lsp"]
 soft-wrap.enable = true
-
-[[grammar]]
-name = "typst"
-source = { git = "https://github.com/uben0/tree-sitter-typst", rev = "7a2bb249fc555dbcba7d440709927614b8802969" }
+language-servers = ["typst-lsp", "ltex-ls"]
