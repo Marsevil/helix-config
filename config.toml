@@ -7,6 +7,8 @@ line-number = "relative"
 auto-completion = false
 cursorline = true
 bufferline = "always"
+end-of-line-diagnostics = "warning"
+inline-diagnostics.cursor-line = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
